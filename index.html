@@ -17,7 +17,6 @@
             --mute: #5a5a5a;
             --accent: #6366f1;
             --accent-hover: #7c7ff2;
-            --accent-soft: rgba(99, 102, 241, 0.14);
         }
 
         * {
@@ -54,21 +53,7 @@
             content: "";
             position: fixed;
             inset: 0;
-            background: radial-gradient(60% 45% at 50% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-            background-size: 44px 44px;
-            mask-image: radial-gradient(circle at 50% 40%, black 0%, transparent 75%);
-            -webkit-mask-image: radial-gradient(circle at 50% 40%, black 0%, transparent 75%);
+            background: radial-gradient(60% 45% at 50% 35%, rgba(99, 102, 241, 0.14) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
@@ -163,74 +148,8 @@
             pointer-events: none;
         }
 
-        .status-line {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 18px;
-            padding: 6px 14px;
-            border-radius: 999px;
-            background: rgba(34, 197, 94, 0.06);
-            border: 1px solid rgba(34, 197, 94, 0.16);
-            font-size: 0.8rem;
-            color: #86efac;
-        }
-
-        .status-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #22c55e;
-            box-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
-
-        .features {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 42px;
-        }
-
-        .feature {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 14px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border);
-            font-size: 0.85rem;
-            color: var(--dim);
-            transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease, transform 0.12s ease;
-        }
-
-        .feature:hover {
-            border-color: var(--border-2);
-            background: rgba(255, 255, 255, 0.04);
-            color: var(--text);
-            transform: translateY(-1px);
-        }
-
-        .feature svg {
-            width: 14px;
-            height: 14px;
-            flex: 0 0 14px;
-            stroke: var(--accent);
-            stroke-width: 2;
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
         .whats-new {
-            margin-top: 20px;
+            margin-top: 22px;
             font-size: 0.85rem;
             color: var(--mute);
             max-width: 420px;
@@ -239,7 +158,7 @@
         }
 
         .links {
-            margin-top: 36px;
+            margin-top: 40px;
             display: flex;
             gap: 10px;
             justify-content: center;
@@ -283,7 +202,6 @@
             h1 { font-size: 2rem; }
             .logo { width: 68px; height: 68px; }
             .btn { padding: 13px 26px; font-size: 0.95rem; }
-            .feature { font-size: 0.8rem; padding: 6px 12px; }
             .links a { font-size: 0.8rem; padding: 6px 12px; }
         }
     </style>
@@ -301,26 +219,6 @@
         </div>
 
         <a href="https://github.com/Velo-Client/Velo-Client/releases/latest" id="download-btn" class="btn is-loading">Loading latest release</a>
-
-        <div class="status-line" id="status-line" style="display:none;">
-            <span class="status-dot"></span>
-            <span id="status-text">Ready to download</span>
-        </div>
-
-        <div class="features">
-            <span class="feature">
-                <svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                Fast launching
-            </span>
-            <span class="feature">
-                <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-                FastFlags editor
-            </span>
-            <span class="feature">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                Themes and mods
-            </span>
-        </div>
 
         <div class="whats-new" id="whats-new"></div>
 
@@ -345,14 +243,7 @@
 
         const btn = document.getElementById("download-btn");
         const badge = document.getElementById("version-badge");
-        const statusLine = document.getElementById("status-line");
-        const statusText = document.getElementById("status-text");
         const whatsNew = document.getElementById("whats-new");
-
-        function showStatus(text) {
-            statusText.textContent = text;
-            statusLine.style.display = "inline-flex";
-        }
 
         async function loadLatest() {
             try {
@@ -367,8 +258,6 @@
                 btn.href = DOWNLOAD_TEMPLATE(tag);
                 btn.classList.remove("is-loading");
 
-                showStatus("Ready to download");
-
                 if (data.notes) {
                     whatsNew.textContent = data.notes;
                 } else if (data.updated) {
@@ -379,7 +268,6 @@
                 btn.textContent = "Download Latest Version";
                 btn.href = RELEASES_LATEST;
                 btn.classList.remove("is-loading");
-                showStatus("Could not load version info");
             }
         }
 
